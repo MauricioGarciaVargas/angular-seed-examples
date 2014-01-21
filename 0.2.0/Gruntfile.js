@@ -475,6 +475,34 @@ module.exports = function (grunt) {
                 }
             }
         },
+        replace: {
+            development: {
+                options: {
+                    patterns: [{
+                        json: grunt.file.readJSON('./config/environments/development.json')
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['./config/config.js'],
+                    dest: '<%= config.app %>/features/enviroment/'
+                }]
+            },
+            production: {
+                options: {
+                    patterns: [{
+                        json: grunt.file.readJSON('./config/environments/production.json')
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['./config/config.js'],
+                    dest: '<%= config.app %>/features/enviroment/'
+                }]
+            }
+        },
         markdown: {
             readme: {
                 options:{
@@ -614,5 +642,15 @@ module.exports = function (grunt) {
         'jshint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('production', [
+        'replace:production'
+    // Add further deploy related tasks here
+    ]);
+
+    grunt.registerTask('testing', [
+        'replace:testing'
+    // Add further deploy related tasks here
     ]);
 };

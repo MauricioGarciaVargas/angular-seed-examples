@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Albums', ['ui.router', 'Albums.albumsList', 'Albums.songsList', 'Albums.songDetails'])
+angular.module('Albums', ['ui.router', 'Albums.albumsList', 'Albums.songsList', 'Albums.songDetails','services.config'])
     .config(function ($urlRouterProvider, $stateProvider) {
         //redirect any invalid hash to /home
         $urlRouterProvider.otherwise('/albums');

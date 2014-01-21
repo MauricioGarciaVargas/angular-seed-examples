@@ -3,5 +3,6 @@
     <li ng-repeat="album in albums.albums">
         <a href="#/albums/{{album.id}}">{{album.title}}</a>
     </li>
+    <li>{{config}}</li>
 </ul>
 <div ui-view="album-list-view"></div>
