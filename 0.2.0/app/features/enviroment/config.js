@@ -1,4 +1,6 @@
 'use strict';
 
 angular.module('services.config', [])
-  .constant('configuration', {foo:'@@hola'});
+  .constant('configuration', {
+    foo: 'bar-production'
+  });
